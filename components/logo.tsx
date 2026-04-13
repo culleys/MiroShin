@@ -3,21 +3,14 @@ import { cn } from "@/lib/utils";
 export function Logo({ className }: { className?: string }) {
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
-      <div className="bg-primary text-primary-foreground p-1.5 rounded-xl shadow-sm flex items-center justify-center">
+      <div className="bg-primary text-primary-foreground w-8 h-8 shadow-md flex items-center justify-center -rotate-12 -translate-y-1 transition-transform hover:-translate-y-1.5 hover:-rotate-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5"
+          fill="currentColor"
+          className="w-6 h-6"
         >
-          {/* Comic Bubble */}
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          {/* Letter M */}
-          <path d="M8 14v-4l4 3 4-3v4" />
+          <path d="M4 19V5h4l4 7 4-7h4v14h-3V9.5l-5 8.5h-2L6 9.5V19H4z" />
         </svg>
       </div>
       <span className="text-xl font-bold tracking-tight text-primary">
