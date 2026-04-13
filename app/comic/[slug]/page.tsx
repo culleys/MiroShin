@@ -32,7 +32,7 @@ export default async function ComicDetailPage({ params }: { params: Promise<{ sl
       <main className="flex-1">
         {/* Hero Section */}
         <div className="relative">
-          <div className="absolute inset-0 h-64 w-full overflow-hidden">
+          <div className="absolute inset-0 w-full overflow-hidden">
             <Image
               src={comic.cover}
               alt={comic.title}
