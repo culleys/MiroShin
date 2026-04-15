@@ -101,16 +101,27 @@ export function ChapterReader({ initialChapter, comicSlug }: ChapterReaderProps)
 
   // Stop auto-scroll on manual interaction
   useEffect(() => {
-    const handleInteraction = () => {
-      if (scrollSpeed > 0) setScrollSpeed(0);
+    if (scrollSpeed === 0) return;
+
+    const handleInteraction = (e: Event) => {
+      const target = e.target as HTMLElement;
+      // Ignore interactions on the UI controls (header and footer)
+      if (target && typeof target.closest === 'function' && (target.closest('footer') || target.closest('header'))) {
+        return;
+      }
+      setScrollSpeed(0);
     };
     
     window.addEventListener('touchstart', handleInteraction, { passive: true });
+    window.addEventListener('mousedown', handleInteraction, { passive: true });
     window.addEventListener('wheel', handleInteraction, { passive: true });
+    window.addEventListener('touchmove', handleInteraction, { passive: true });
     
     return () => {
       window.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('mousedown', handleInteraction);
       window.removeEventListener('wheel', handleInteraction);
+      window.removeEventListener('touchmove', handleInteraction);
     };
   }, [scrollSpeed]);
 
